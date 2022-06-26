@@ -1,0 +1,44 @@
+@import "variables";
+@import "mixin";
+
+.excel__toolbar {
+  position: absolute;
+  height: $toolbar_height;
+  left: 0;
+  right: 0;
+  top: $header_height;
+  border-top: 1px solid $border_color;
+  border-bottom: 1px solid $border_color;
+  padding: 7px 10px;
+  display: flex;
+
+  .button {
+    @include button(green);
+  }
+
+
+  .dropdown-buttons {
+    visibility: hidden;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    transform: translateX(calc(-50% + 10px));
+    width: 134px;
+    flex-wrap: wrap;
+    background-color: white;
+    border-radius: 4px;
+    border: 1px solid black;
+    z-index: 3;
+  }
+
+  .color-circle-selector {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 1px solid gray;
+  }
+
+  .visible {
+    visibility: visible;
+  }
+}

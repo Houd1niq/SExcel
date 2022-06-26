@@ -1,0 +1,120 @@
+@import "variables";
+@import "mixin";
+
+.excel__table {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: $header_height + $toolbar_height + $formula_height;
+  overflow-x: auto;
+  padding-bottom: 2px;
+
+  .row {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    min-height: 20px;
+    height: $row_height;
+    user-select: none;
+  }
+
+  .row-info {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: $info_cell_width;
+    border: 1px solid $border_color;
+    background: #f8f9fa;
+    border-top: none;
+
+    &.active_address_cell {
+      background-color: $active_address_cell_color;
+    }
+  }
+
+  .row-data {
+    display: flex;
+  }
+
+  .col-resize-highliter {
+    position: absolute;
+    right: -1px;
+    bottom: -100vh;
+    width: 1px;
+    height: 100vh;
+    background-color: $select-color;
+    opacity: 0;
+  }
+
+  .column {
+    user-select: none;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    background: #f8f9fa;
+    min-width: 40px;
+    width: $cell_width;
+    border: 1px solid $border_color;
+    border-top: none;
+    border-left: none;
+
+    &.active_address_cell {
+      background-color: $active_address_cell_color;
+    }
+  }
+
+  .col-resize,
+  .row-resize {
+    position: absolute;
+    opacity: 0;
+    background-color: $select-color;
+    z-index: 2;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  .row-resize {
+    bottom: -2px;
+    left: 0;
+    height: 4px;
+    width: 100%;
+    cursor: row-resize;
+  }
+
+  .col-resize {
+    top: 0;
+    right: -2px;
+    width: 4px;
+    height: 100%;
+    cursor: col-resize;
+
+    &:hover ~ .col-resize-highliter {
+      opacity: 1;
+    }
+  }
+
+  .cell {
+    min-width: 40px;
+    padding: 5px;
+    width: $cell_width;
+    overflow: hidden;
+    background-color: white;
+    height: 100%;
+    border: 1px solid #e2e3e3;
+    border-top: none;
+    border-left: none;
+    color: #111;
+    outline: none;
+    white-space: nowrap;
+
+    &.selected {
+      border: none;
+      outline: 2px solid $select-color;
+      z-index: 2;
+    }
+  }
+}
