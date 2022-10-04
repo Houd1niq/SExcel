@@ -19,6 +19,40 @@
     min-width: $info_cell_width;
   }
 
+  .formula-helper {
+    position: absolute;
+    width: 200px;
+    height: auto;
+    background-color: #fff;
+    border: 1px solid gray;
+    border-radius: 5px;
+    left: $info_cell_width + 3px;
+    z-index: 10;
+    top: $formula_height + 3px;
+    list-style: none;
+    display: none;
+
+    &__hint {
+      display: inline-block;
+      margin-left: 4px;
+      font-size: 10px;
+      color: gray;
+      opacity: 80%;
+    }
+
+    &__item {
+      padding: 5px;
+      transition: background-color 0.3s ease-out;
+      &:hover {
+        background-color: #a2a2a2;
+        color: white;
+      }
+      &:hover span {
+        color: white;
+      }
+    }
+  }
+
   .formula-input {
     padding: 4px;
     font-size: 12px;
