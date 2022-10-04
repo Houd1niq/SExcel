@@ -1,6 +1,9 @@
 class Dom {
   constructor(selector) {
-    this.$el = typeof selector === "string" ? document.querySelector(selector) : selector;
+    this.$el =
+      typeof selector === "string"
+        ? document.querySelector(selector)
+        : selector;
   }
 
   html(html) {
@@ -24,8 +27,6 @@ class Dom {
     return this.$el.dataset;
   }
 
-  // height: 40px
-
   css(styles = {}) {
     Object.keys(styles).forEach((key) => {
       this.$el.style[key] = styles[key];
@@ -33,7 +34,13 @@ class Dom {
   }
 
   getAll(selector) {
-    return this.$el.querySelectorAll(selector);
+    let items = this.$el.querySelectorAll(selector);
+    const $items = [];
+    items.forEach((item) => {
+      $items.push($(item));
+    });
+    items = null;
+    return $items;
   }
 
   find(selector) {
@@ -61,7 +68,6 @@ class Dom {
   }
 
   toggleClass(className) {
-    console.log(this.$el);
     this.$el.classList.toggle(className);
   }
 

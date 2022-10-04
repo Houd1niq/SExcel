@@ -1,4 +1,4 @@
-import {capitalize} from "./utils";
+import { capitalize } from "./utils";
 
 export class DOMListener {
   constructor($root, listeners = []) {
@@ -16,7 +16,7 @@ export class DOMListener {
         throw new Error(`No method "${method}" in ${this.name}`);
       }
       this[method] = this[method].bind(this);
-      this.$root.on(listener, this[method]);
+      this.$root.on(listener, this[method], method);
     });
   }
 

@@ -1,6 +1,6 @@
 import { Page } from "../Page";
 import { debounce, getDateOfOpen, storage } from "../utils";
-import { defaultState } from "../../store/initialState";
+import { DefaultState } from "../../store/initialState";
 import { rootReducer } from "../../store/rootReducer";
 import { createStore } from "../createStore";
 import { Excel } from "../../components/excel/Excel";
@@ -11,6 +11,7 @@ import { Table } from "../../components/table/Table";
 
 export class ExcelPage extends Page {
   getRoot() {
+    const defaultState = new DefaultState();
     const storageName = `excel:${this.param}`;
     const dateOfOpen = getDateOfOpen();
     const initialState = storage(storageName)

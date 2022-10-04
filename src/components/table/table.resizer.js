@@ -1,4 +1,4 @@
-import {$} from "../../core/dom";
+import { $ } from "../../core/dom";
 
 export function tableResHandler($root, e) {
   return new Promise((res) => {
@@ -28,19 +28,19 @@ export function tableResHandler($root, e) {
         value = cords.width + delta;
         const highliterPos = value - cords.width;
         if (highliterPos >= 0) {
-          $highliter.css({width: delta + "px", right: -delta + "px"});
+          $highliter.css({ width: delta + "px", right: -delta + "px" });
         } else {
-          $highliter.css({width: -delta + "px", right: 0});
+          $highliter.css({ width: -delta + "px", right: 0 });
         }
       };
 
       document.onmouseup = () => {
         $highliter.remove();
-        $parent.css({width: value + "px"});
-        cells.forEach((item) => (item.style.width = value + "px"));
+        $parent.css({ width: value + "px" });
+        cells.forEach((item) => item.css({ width: value + "px" }));
         document.onmousemove = null;
         document.onmouseup = null;
-        res({value, id: $parent.dataset.col, type: "col"});
+        res({ value, id: $parent.dataset.col, type: "col" });
       };
     }
 
@@ -61,7 +61,10 @@ export function tableResHandler($root, e) {
         value = cords.height + delta - window.scrollY;
         const highliterPos = value - cords.height;
         if (highliterPos <= 0) {
-          $highliter.css({height: -delta + window.scrollY + "px", bottom: "0px"});
+          $highliter.css({
+            height: -delta + window.scrollY + "px",
+            bottom: "0px",
+          });
         } else {
           $highliter.css({
             height: delta - window.scrollY + "px",
@@ -71,8 +74,8 @@ export function tableResHandler($root, e) {
       };
       document.onmouseup = () => {
         $highliter.remove();
-        $parent.css({height: value + "px"});
-        res({id: $parent.dataset.row, value, type: "row"});
+        $parent.css({ height: value + "px" });
+        res({ id: $parent.dataset.row, value, type: "row" });
         document.onmousemove = null;
         document.onmouseup = null;
       };
