@@ -11,7 +11,7 @@ export class RegDict {
       },
       sumDiapason: {
         regExp: [/=сумм\((d+|\w\d+):\s?(d+|\w\d+)\)/],
-        value: '"=сумм(:)"',
+        value: "=сумм(:)",
         hint: "Сумма диапазона двух ячеек",
       },
       minus: {
